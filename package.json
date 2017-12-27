@@ -1,0 +1,43 @@
+{
+  "name": "dsloracle",
+  "version": "1.0.0",
+  "description": "Oracle directory service for the Decentraland project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "lt -p 5000 -s potatojunkie1108"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rushughes/dsloracle.git"
+  },
+  "keywords": [
+    "decentraland"
+  ],
+  "author": "Rus Hughes <rus@cyberchannel.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rushughes/dsloracle/issues"
+  },
+  "homepage": "https://github.com/rushughes/dsloracle#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "path-parser": "^3.0.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "localtunnel": "^1.8.3",
+    "nodemon": "^1.14.3"
+  }
+}
