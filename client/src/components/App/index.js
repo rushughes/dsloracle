@@ -5,6 +5,7 @@ import * as actions from '../../actions';
 
 import Header from '../Header';
 import LandCreateContainer from '../../containers/LandCreateContainer';
+import LandContainer from '../../containers/LandContainer';
 
 class App extends Component {
 
@@ -18,7 +19,8 @@ class App extends Component {
         <BrowserRouter>
           <div className="container">
             <Header />
-            <Route exact path="/land/create" component={LandCreateContainer} />
+            <Route exact path="/new" component={LandCreateContainer} />
+            <Route exact path="/land/:landId" component={LandContainer} />
           </div>
         </BrowserRouter>
       </div>

@@ -6,5 +6,5 @@ import landReducer from './landReducer';
 export default combineReducers({
   auth: authReducer,
   form: formReducer,
-  icos: landReducer,
+  land: landReducer,
 });

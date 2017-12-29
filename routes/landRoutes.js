@@ -29,11 +29,16 @@ module.exports = app => {
 
     try {
       const l = await land.save();
-      res.redirect('/land/' + l.id);
+      res.send(l);
     } catch (err) {
       logger.error(err);
       res.status(422).send(err);
     }
+  });
+
+  app.get('/api/land/:landId', requireLogin, async (req, res) => {
+    const land = await Land.find({ _user: req.user.id, _id: req.params.landId }).select();
+    res.send(land);
   });
 
 };
