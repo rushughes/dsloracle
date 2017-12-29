@@ -30,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/authRoutes')(app);
-require('./routes/LandRoutes')(app);
+require('./routes/landRoutes')(app);
 
 if (process.env.NODE_ENV == 'production') {
   // express will serve up static production assets
