@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 import Header from '../Header';
+import LandCreateContainer from '../../containers/LandCreateContainer';
 
 class App extends Component {
 
@@ -17,6 +18,7 @@ class App extends Component {
         <BrowserRouter>
           <div className="container">
             <Header />
+            <Route exact path="/land/create" component={LandCreateContainer} />
           </div>
         </BrowserRouter>
       </div>

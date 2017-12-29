@@ -8,6 +8,7 @@ export const readUser = () => async dispatch => {
 };
 
 export const createLand = (values, history) => async dispatch => {
+  console.log('createLand', values);
   const res = await axios.post('/api/land', values);
   dispatch({ type: FETCH_ALL_LAND, payload: res.data });
   history.push('/land');
