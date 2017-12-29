@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { readLand } from '../../actions';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Land from '../../components/Land';
 
 class LandContainer extends Component {

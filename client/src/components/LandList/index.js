@@ -1,7 +1,7 @@
-import _ from 'lodash';
+//import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class LandList extends Component {
 
@@ -13,21 +13,25 @@ class LandList extends Component {
       return (
         <div>
           <table>
+            <thead>
             <tr>
               <th>Title</th><th>X</th><th>Y</th><th>District</th>
             </tr>
-            {this.props.landList.map(function (land, index) {
-                  return (
-                    <tr key={ land.id }>
-                      <td><Link to={`/land/${land._id}`}>{land.title}</Link></td>
-                      <td>{land.x}</td>
-                      <td>{land.y}</td>
-                      <td>{land.district}</td>
-                    </tr>
-                  );
-                }
-              )
-            }
+          </thead>
+            <tbody>
+              {this.props.landList.map(function (land, index) {
+                    return (
+                      <tr key={ land._id }>
+                        <td><Link to={`/land/${land._id}`}>{land.title}</Link></td>
+                        <td>{land.x}</td>
+                        <td>{land.y}</td>
+                        <td>{land.district}</td>
+                      </tr>
+                    );
+                  }
+                )
+              }
+            </tbody>
           </table>
         </div>
       );

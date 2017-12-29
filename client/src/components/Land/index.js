@@ -12,7 +12,7 @@ class Land extends Component {
 
     var adult = 'Family friendly content';
     if (this.props.land.adult) {
-      var adult = 'Adult content';
+      adult = 'Adult content';
     }
 
     return (

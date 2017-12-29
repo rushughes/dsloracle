@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { readLand } from '../../actions';
-import { Link } from 'react-router-dom';
 import LandList from '../../components/LandList';
 import { readAllLand } from '../../actions';
 
 class HomeLandListContainer extends Component {
+
   componentDidMount() {
     this.props.readAllLand();
   }
