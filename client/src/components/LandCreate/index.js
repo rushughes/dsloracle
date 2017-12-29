@@ -18,19 +18,24 @@ class LandCreate extends Component {
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <div className="form-group">
           <label for="Title">Title:</label>
-          <input type="text" class="form-control" id="title"/>
+          <Field
+            component="input" type="text"
+            className="form-control" name="title" id="title"
+            placeholder="Amazing wooden horse"/>
         </div>
         <div className="form-group">
           <label for="x">X:</label>
-          <input type="text" class="form-control" id="x"/>
+          <Field component="input" type="text"
+            className="form-control" name="x" id="x" placeholder="18"/>
         </div>
         <div className="form-group">
           <label for="y">Y:</label>
-          <input type="text" class="form-control" id="y"/>
+          <Field component="input" type="text"
+            className="form-control" name="y" id="y" placeholder="-12"/>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="district">District:</label>
-          <select class="form-control" id="district">
+          <Field className="form-control" name="district" id="district" component="select">
             <option>Genesis City</option>
             <option>SUREAL District</option>
             <option>Dragon City</option>
@@ -40,14 +45,18 @@ class LandCreate extends Component {
             <option>Vegas City</option>
             <option>Fashion Street</option>
             <option>Red Light District</option>
-          </select>
+          </Field>
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label for="description">Description:</label>
-          <textarea class="form-control" rows="5" id="description"></textarea>
+          <Field
+            className="form-control" rows="5" name="description" id="description" component="textarea"/>
         </div>
-        <div class="checkbox">
-          <label><input type="checkbox" value="adult"/>Adult</label>
+        <div className="checkbox">
+          <label>
+            <Field type="checkbox" value="adult" name="adult" id="adult" component="input" />
+            Adult
+          </label>
         </div>
         <Link to="/" className="btn btn-cancel">Cancel</Link>
         <button type="submit" className="btn btn-default">Submit</button>

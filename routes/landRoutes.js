@@ -15,9 +15,9 @@ module.exports = app => {
 
   app.post('/api/land', requireLogin, async (req, res) => {
     logger.debug(req.body);
-    const { project, symbol, investment, transactionID } = req.body;
+    const { title, x, y, district, description, adult } = req.body;
 
-    const l = new Land({
+    const land = new Land({
       title,
       x,
       y,
@@ -28,9 +28,10 @@ module.exports = app => {
     });
 
     try {
-      await l.save();
-      res.send();
+      const l = await land.save();
+      res.redirect('/land/' + l.id);
     } catch (err) {
+      logger.error(err);
       res.status(422).send(err);
     }
   });
