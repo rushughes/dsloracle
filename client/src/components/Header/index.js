@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 class Header extends Component {
 
@@ -41,13 +41,10 @@ class Header extends Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">Oracle</a>
+            <a className="navbar-brand" href="/">Oracle</a>
           </div>
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Home</a></li>
             <li><a href="/new">Submit New POI</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             {this.renderContent()}

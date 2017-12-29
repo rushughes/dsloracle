@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_ALL_LAND, READ_LAND, CREATE_LAND } from './types';
+import { FETCH_USER, READ_ALL_LAND, READ_LAND, CREATE_LAND } from './types';
 
 export const readUser = () => async dispatch => {
   const res = await axios.get('/api/current_user');
@@ -18,7 +18,7 @@ export const createLand = (values, history) => async dispatch => {
 export const readAllLand = () => async dispatch => {
   const res = await axios.get('/api/land');
 
-  dispatch({ type: FETCH_ALL_LAND, payload: res.data });
+  dispatch({ type: READ_ALL_LAND, payload: res.data });
 };
 
 export const readLand = (id) => async dispatch => {

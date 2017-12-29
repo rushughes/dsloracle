@@ -6,6 +6,7 @@ import * as actions from '../../actions';
 import Header from '../Header';
 import LandCreateContainer from '../../containers/LandCreateContainer';
 import LandContainer from '../../containers/LandContainer';
+import Home from '../../components/Home';
 
 class App extends Component {
 
@@ -18,7 +19,8 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <div className="container">
-            <Header />
+            <Header/>
+            <Route exact path="/" component={Home} />
             <Route exact path="/new" component={LandCreateContainer} />
             <Route exact path="/land/:landId" component={LandContainer} />
           </div>

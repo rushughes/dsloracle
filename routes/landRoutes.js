@@ -9,7 +9,7 @@ const Land = mongoose.model('land');
 
 module.exports = app => {
   app.get('/api/land', requireLogin, async (req, res) => {
-    const l = await Land.find({ _user: req.user.id }).select();
+    const l = await Land.find({ _user: req.user.id }).sort({createdAt: 'desc'}).select();
     res.send(l);
   });
 

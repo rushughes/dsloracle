@@ -1,7 +1,7 @@
-import _ from 'lodash';
+//import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+//import { Link, withRouter } from 'react-router-dom';
 import './style.css';
 
 class Land extends Component {
@@ -10,10 +10,9 @@ class Land extends Component {
 
     console.log('Land props:', this.props);
 
+    var adult = 'Family friendly content';
     if (this.props.land.adult) {
       var adult = 'Adult content';
-    } else {
-      var adult = 'Family friendly content';
     }
 
     return (
