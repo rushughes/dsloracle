@@ -7,11 +7,6 @@ class SideBar extends Component {
   render() {
     return (
       <ul className="nav nav-pills nav-stacked">
-        <li role="presentation"><Link to="/category/new">new</Link></li>
-        <li role="presentation"><Link to="/category/editor">editor</Link></li>
-        <li role="presentation"><Link to="/category/events">events</Link></li>
-        <li role="presentation"><Link to="/category/shopping_events">shopping_events</Link></li>
-        <li role="presentation"><Link to="/category/winter">winter</Link></li>
         <li role="presentation"><Link to="/category/adventure">adventure</Link></li>
         <li role="presentation"><Link to="/category/arts">arts</Link></li>
         <li role="presentation"><Link to="/category/bars">bars</Link></li>

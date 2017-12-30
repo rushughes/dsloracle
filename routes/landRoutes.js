@@ -15,12 +15,14 @@ module.exports = app => {
 
   app.post('/api/land', requireLogin, async (req, res) => {
     logger.debug(req.body);
-    const { title, x, y, district, category, description, adult } = req.body;
-
+    const { title, x, y, files, district, category, description, adult } = req.body;
+    logger.debug('files', files);
+    imageURL='placeholder';
     const land = new Land({
       title,
       x,
       y,
+      imageURL,
       district,
       description,
       category,

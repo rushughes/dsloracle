@@ -5,6 +5,7 @@ const landSchema = new Schema({
   title: String,
   x: String,
   y: String,
+  imageURL: String,
   district: String,
   category: String,
   description: String,

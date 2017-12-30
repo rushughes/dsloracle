@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
+import Dropzone from 'react-dropzone'
 import { createLand } from '../../actions';
 
 class LandCreate extends Component {
@@ -13,6 +14,32 @@ class LandCreate extends Component {
   };
 
   render() {
+
+    const FILE_FIELD_NAME = 'files';
+
+    const renderDropzoneInput = (field) => {
+      const files = field.input.value;
+      return (
+        <div>
+          <Dropzone
+            name={field.name}
+            onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
+          >
+            <div>Try dropping some files here, or click to select files to upload.</div>
+          </Dropzone>
+          {field.meta.touched &&
+            field.meta.error &&
+            <span className="error">{field.meta.error}</span>}
+          {files && Array.isArray(files) && (
+            <ul>
+              { files.map((file, i) => <li key={i}>{file.name}<img src={file.preview}/></li>) }
+
+            </ul>
+          )}
+        </div>
+      );
+    }
+
     return (
       <div>
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
@@ -32,6 +59,9 @@ class LandCreate extends Component {
           <label for="y">Y:</label>
           <Field component="input" type="text"
             className="form-control" name="y" id="y" placeholder="-12"/>
+        </div>
+        <div className="form-group">
+          <Field name="files" component={renderDropzoneInput} />
         </div>
         <div className="form-group">
           <label for="district">District:</label>
