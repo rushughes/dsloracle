@@ -15,7 +15,7 @@ module.exports = app => {
 
   app.post('/api/land', requireLogin, async (req, res) => {
     logger.debug(req.body);
-    const { title, x, y, district, description, adult } = req.body;
+    const { title, x, y, district, category, description, adult } = req.body;
 
     const land = new Land({
       title,
@@ -23,6 +23,7 @@ module.exports = app => {
       y,
       district,
       description,
+      category,
       adult,
       _user: req.user.id,
     });

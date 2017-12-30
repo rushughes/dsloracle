@@ -6,6 +6,7 @@ const landSchema = new Schema({
   x: String,
   y: String,
   district: String,
+  category: String,
   description: String,
   adult: Boolean,
   _user: { type: Schema.Types.ObjectId, ref: 'Land' },

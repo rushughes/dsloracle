@@ -15,7 +15,7 @@ class LandList extends Component {
           <table>
             <thead>
             <tr>
-              <th>Title</th><th>X</th><th>Y</th><th>District</th>
+              <th>Title</th><th>X</th><th>Y</th><th>District</th><th>Category</th>
             </tr>
           </thead>
             <tbody>
@@ -26,6 +26,7 @@ class LandList extends Component {
                         <td>{land.x}</td>
                         <td>{land.y}</td>
                         <td>{land.district}</td>
+                        <td>{land.category}</td>
                       </tr>
                     );
                   }
