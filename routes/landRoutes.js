@@ -42,4 +42,9 @@ module.exports = app => {
     res.send(land);
   });
 
+  app.get('/api/land/category/:categoryId', requireLogin, async (req, res) => {
+    const land = await Land.find({ category: req.params.categoryId }).select();
+    res.send(land);
+  });
+
 };

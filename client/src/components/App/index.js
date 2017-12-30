@@ -6,7 +6,9 @@ import * as actions from '../../actions';
 import Header from '../Header';
 import LandCreateContainer from '../../containers/LandCreateContainer';
 import LandContainer from '../../containers/LandContainer';
-import Home from '../../components/Home';
+import CategoryContainer from '../../containers/CategoryContainer';
+import Home from '../Home';
+import SideBar from '../SideBar';
 
 class App extends Component {
 
@@ -16,16 +18,24 @@ class App extends Component {
 
   render() {
     return (
+      <BrowserRouter>
       <div>
-        <BrowserRouter>
-          <div className="container">
-            <Header/>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/new" component={LandCreateContainer} />
-            <Route exact path="/land/:landId" component={LandContainer} />
+
+          <Header/>
+          <div className="row">
+            <div className="col-md-4">
+              <SideBar/>
+            </div>
+            <div className="col-md-8">
+              <Route exact path="/" component={Home} />
+              <Route exact path="/new" component={LandCreateContainer} />
+              <Route exact path="/land/:landId" component={LandContainer} />
+              <Route exact path="/category/:category" component={CategoryContainer} />
+            </div>
           </div>
-        </BrowserRouter>
+
       </div>
+      </BrowserRouter>
     );
   }
 }
