@@ -9,6 +9,7 @@ import LandContainer from '../../containers/LandContainer';
 import CategoryContainer from '../../containers/CategoryContainer';
 import Home from '../Home';
 import SideBar from '../SideBar';
+import Footer from '../Footer';
 
 class App extends Component {
 
@@ -33,7 +34,7 @@ class App extends Component {
               <Route exact path="/category/:category" component={CategoryContainer} />
             </div>
           </div>
-
+          <Footer/>
       </div>
       </BrowserRouter>
     );
