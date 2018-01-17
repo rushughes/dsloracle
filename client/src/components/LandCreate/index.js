@@ -8,9 +8,42 @@ import { createLand } from '../../actions';
 
 class LandCreate extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: []
+    };
+  }
+
   onSubmit = (values) => {
-    console.log('onSubmit values', values);
+    console.log('onSubmit', values);
+    values.images = this.state.images;
     this.props.createLand(values, this.props.history);
+  };
+
+  onDrop = (accepted, rejected) => {
+    console.log('onDrop', accepted, rejected);
+    //onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
+
+    var images = [];
+
+    accepted.forEach(( file ) => {
+      const reader: FileReader = new FileReader();
+        reader.onload = () => {
+            const fileAsBase64: any = reader.result.substr(reader.result.indexOf(",") + 1);
+            images.push(fileAsBase64);
+        };
+
+        reader.onabort = () => console.log("file reading was aborted");
+        reader.onerror = () => console.log("file reading has failed");
+
+        reader.readAsDataURL(file);
+    });
+
+    this.setState({
+      images: images
+    });
+
   };
 
   render() {
@@ -23,7 +56,7 @@ class LandCreate extends Component {
         <div>
           <Dropzone
             name={field.name}
-            onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
+            onDrop = { (accepted, rejected) => {this.onDrop(accepted, rejected)}}
           >
             <div>Try dropping some files here, or click to select files to upload.</div>
           </Dropzone>

@@ -15,7 +15,12 @@ module.exports = app => {
 
   app.post('/api/land', requireLogin, async (req, res) => {
     logger.debug(req.body);
-    const { title, x, y, files, district, category, description, adult } = req.body;
+    /*
+    [0] debug:  title=assdfdsf, x=123, y=123123, files=[preview=blob:http://localhost:3000/bed3762e-a4de-4d19-8039-97cebaaca5c1], description=sdfsdfsdf, category=castles, district=SUREAL District
+[0] debug: files preview=blob:http://localhost:3000/bed3762e-a4de-4d19-8039-97cebaaca5c1
+    */
+
+    const { title, x, y, files, images, district, category, description, adult } = req.body;
     logger.debug('files', files);
     imageURL='placeholder';
     const land = new Land({

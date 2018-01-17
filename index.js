@@ -17,6 +17,8 @@ const app = express();
 logger.debug('Overriding Express logger');
 app.use(morgan('combined', { stream: logger.stream }));
 
+app.use(bodyParser({limit: '3mb'}));
+
 app.use(bodyParser.json());
 
 app.use(
